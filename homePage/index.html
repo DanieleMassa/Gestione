@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<style>
+    .txt-h1{
+        font-size: 150px;
+    }
+    .all{
+        padding-top: 20%;
+    }
+    .txt-h3 {
+        font-size: 50px;
+    }
+</style>
+<body>
+<div class="all">
+    <script>
+        fetch('recr.data')
+            .then(response => response.text())
+            .then(data => {
+                // Verifica il contenuto del file
+                if (data.trim() === '1') {
+                    window.location.href = "/matematica/formulari/form.php";
+                } else if (data.trim() === '0') {
+                    document.write('<h1 class="txt-h1">Benvenuto nella home</h1>');
+                    document.write('<h3 class="txt-h3">La pagina al momento non è attiva, chiedi all\'admin di abilitarla</h3>');
+                }
+            })
+            .catch(error => {
+                console.error('Si è verificato un errore:', error);
+            });
+    </script>
+    <h1 class="txt-h1">Benvenuto nella home</h1>
+    <h3 class="txt-h3">La pagina al momento non è attiva, chiedi all'admin di abilitarla</h3>
+</div>
+</body>
+</html>
